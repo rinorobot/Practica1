@@ -1,10 +1,13 @@
 package com.example.fragmentos
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.Navigation
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +24,9 @@ class InicioFragmento : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+
+    var btnPrimer : Button? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,6 +41,20 @@ class InicioFragmento : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_inicio_fragmento, container, false)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        btnPrimer = view.findViewById(R.id.btnPrimer) as Button?
+
+        btnPrimer?.setOnClickListener {
+
+            Navigation.findNavController(view).navigate(R.id.action_inicioFragmento_to_primerFragmento)
+
+        }
+
     }
 
     companion object {

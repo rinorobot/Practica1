@@ -3,6 +3,7 @@ package com.example.video
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.MediaController
+import android.widget.Toast
 import android.widget.VideoView
 
 class MainActivity : AppCompatActivity() {
@@ -16,5 +17,7 @@ class MainActivity : AppCompatActivity() {
         val mc = MediaController(this)
         mc.setAnchorView(v1)
         v1.setMediaController(mc)
+
+        Toast.makeText(this,packageName,Toast.LENGTH_LONG).show()
     }
 }

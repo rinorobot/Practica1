@@ -6,27 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.navigationdrawerdemo.R
+import com.example.navigationdrawerdemo.databinding.FragmentContactoBinding
+import com.example.navigationdrawerdemo.databinding.FragmentGalleryBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ContactoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ContactoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+ private var _binding: FragmentContactoBinding? = null
+    private val binding get() = _binding!!
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -34,8 +26,10 @@ class ContactoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contacto, container, false)
+        _binding = FragmentContactoBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        return root
     }
 
     companion object {
@@ -52,9 +46,13 @@ class ContactoFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             ContactoFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
                 }
             }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
