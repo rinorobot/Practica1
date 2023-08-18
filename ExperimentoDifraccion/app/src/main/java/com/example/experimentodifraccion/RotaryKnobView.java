@@ -13,6 +13,7 @@ import androidx.core.view.GestureDetectorCompat;
 
 import kotlin.jvm.JvmOverloads;
 import kotlin.math.atan2;
+
 class RotaryKnobView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr), GestureDetector.OnGestureListener {
